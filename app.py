@@ -5,17 +5,17 @@ import os
 
 
 def write_last_result(result):
-    if not os.path.exists("/tmp/checkson/persistent"):
-        os.makedirs("/tmp/checkson/persistent")
+    if not os.path.exists("checkson/persistent"):
+        os.makedirs("checkson/persistent")
 
-    with open("/tmp/checkson/persistent/last_result.txt", "w") as f:
+    with open("checkson/persistent/last_result.txt", "w") as f:
         f.write(f"Result: {result}, time: {datetime.datetime.now()}")
 
 
 def read_last_result():
-    if not os.path.exists("/tmp/checkson/persistent/last_result.txt"):
+    if not os.path.exists("checkson/persistent/last_result.txt"):
         return "No previous results"
-    with open("/tmp/checkson/persistent/last_result.txt", "r") as f:
+    with open("checkson/persistent/last_result.txt", "r") as f:
         return f.read()
 
 
