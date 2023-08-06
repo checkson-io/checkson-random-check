@@ -30,15 +30,23 @@ def print_all_files():
                 print("Error reading directory")
 
 
+def print_all_env_vars():
+    print("All env vars:")
+    for key, value in os.environ.items():
+        print(f"{key}: {value}")
+
+
 if random.random() > 0.5:
     print(f"Last result: {read_last_result()}")
     print("Check successful")
     write_last_result("success")
-    print_all_files()
+    # print_all_files()
+    print_all_env_vars()
     sys.exit(0)
 else:
     print(f"Last result: {read_last_result()}")
     print("Check unsuccessful")
     write_last_result("failure")
-    print_all_files()
+    # print_all_files()
+    print_all_env_vars()
     sys.exit(1)
