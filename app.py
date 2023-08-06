@@ -19,13 +19,26 @@ def read_last_result():
         return f.read()
 
 
+def print_all_files():
+    print("All files:")
+    for root, dirs, files in os.walk("/"):
+        for dir in dirs:
+            try:
+                for filename in os.listdir(os.path.join(root, dir)):
+                    print(os.path.join(root, dir, filename))
+            except Exception as e:
+                print("Error reading directory")
+
+
 if random.random() > 0.5:
     print(f"Last result: {read_last_result()}")
     print("Check successful")
     write_last_result("success")
+    print_all_files()
     sys.exit(0)
 else:
     print(f"Last result: {read_last_result()}")
     print("Check unsuccessful")
     write_last_result("failure")
+    print_all_files()
     sys.exit(1)
