@@ -4,21 +4,21 @@ import datetime
 import os
 
 
-base = os.environ['CI_PROJECT_DIR']
+checkson_dir = os.environ['CHECKSON_DIR']
 
 
 def write_last_result(result):
-    if not os.path.exists(f"{base}/checkson/persistent"):
-        os.makedirs(f"{base}/checkson/persistent")
+    if not os.path.exists(f"{checkson_dir}/persistent"):
+        os.makedirs(f"{checkson_dir}/persistent")
 
-    with open(f"{base}/checkson/persistent/last_result.txt", "w") as f:
+    with open(f"{checkson_dir}/persistent/last_result.txt", "w") as f:
         f.write(f"Result: {result}, time: {datetime.datetime.now()}")
 
 
 def read_last_result():
-    if not os.path.exists(f"{base}/checkson/persistent/last_result.txt"):
+    if not os.path.exists(f"{checkson_dir}/checkson/persistent/last_result.txt"):
         return "No previous results"
-    with open(f"{base}/checkson/persistent/last_result.txt", "r") as f:
+    with open(f"{checkson_dir}/checkson/persistent/last_result.txt", "r") as f:
         return f.read()
 
 
