@@ -10,6 +10,12 @@ def write_message(message):
         f.write(message)
 
 
+def write_attachment(contents):
+    os.makedirs(f"{checkson_dir}/attachments", exist_ok=True)
+    with open(f"{checkson_dir}/attachments/example-attachment.txt", "w") as f:
+        f.write(contents)
+
+
 if random.random() > 0.5:
     print("Check successful")
     write_message("Check successful")
