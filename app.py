@@ -19,8 +19,10 @@ def write_attachment(contents):
 if random.random() > 0.5:
     print("Check successful")
     write_message("Check successful")
+    write_attachment("This is an example attachment")
     sys.exit(0)
 else:
     print("Check unsuccessful")
     write_message("Check unsuccessful")
+    write_attachment("This is an example attachment")
     sys.exit(1)
